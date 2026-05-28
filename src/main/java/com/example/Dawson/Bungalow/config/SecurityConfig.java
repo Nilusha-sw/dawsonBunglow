@@ -80,6 +80,9 @@ public class SecurityConfig {
                         .requestMatchers("/api/bookings/admin/**").hasRole("ADMIN")
                         .requestMatchers("/api/admin/**").hasRole("ADMIN")
 
+                        .requestMatchers(HttpMethod.POST, "/chat").permitAll()
+                        .requestMatchers(HttpMethod.GET,  "/health").permitAll()
+
                         // Everything else requires authentication
                         .anyRequest().authenticated()
                 )
